@@ -1,0 +1,9 @@
+{% extends "template.html" %}
+
+{% block body %}
+<div>
+    {% for index in range(bingo_data | length) %} 
+        {{bingo_data[index]}}  
+    {% endfor %}
+</div>
+{% endblock %}

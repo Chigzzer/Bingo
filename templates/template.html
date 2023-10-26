@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}{% endblock %}
+    <link href="../static/styles.css" rel="stylesheet">  
+</head>
+<body>
+    <div id="app">
+        <div class="header">
+            <div class="top-title"><p>{% block header %}{% endblock %}</p></div>
+            <div id="league-id-form">
+                <form method="post">
+                    <label id="league-id-title" for="League ID">League ID</label>
+                    <input type="number" name="League ID" id="league-id" min="1">
+                    <button type="submit">Change League</button>
+                </form>
+            </div>
+            <div class="links">
+                <a href="/">Home</a>
+                <!---<a href="race">League Race</a>>--->
+            </div>
+        </div>
+        <div id="main-body">
+        {% block body %}{% endblock %}
+        </div>
+        <div class="footer">
+            <div class="copy">Copyright &copy Chiraag C</div>
+        </div>
+    </div>
+</body>
+</html>

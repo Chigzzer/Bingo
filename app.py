@@ -32,10 +32,11 @@ def generate_card():
 @app.route("/")
 def index():
     bingo_data = generate_card()
+    size = 3
     print('below is data')
     print(bingo_data)
     print(numbers_chosen)
-    return render_template("index.html", bingo_data = bingo_data)
+    return render_template("index.html", bingo_data = bingo_data, size = size)
 
 
 if __name__ == '__main__':

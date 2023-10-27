@@ -66,6 +66,10 @@ button{
     display: flex;
 }
 
+.test{
+    border: 1px green solid;
+}
+
 .links a{
     color: inherit;
     text-decoration: none;
@@ -74,78 +78,33 @@ button{
 
 #main-body{
     grid-area: main;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     overflow: auto;
     padding: 15px 5px 10px 5px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 3fr;
-    gap: 20px 0px;
     height: 100%;
     }
 
-.title{
-    font-size: 48px;
-    align-self: center;
-    text-align: center;
-    width: auto;
-}
-
-table{
-    border-collapse:collapse;   
-}
-
-table tr{
-    border-bottom: 1px solid black;
-}
-
-th, td{
-    padding: 0.5vh;
-    text-align: center;
-    width: auto;
-}
-
-#league-section{
-    grid-area: 1 / 1 / 3 / 2;
+#bingo-card{
+    border: 1px red solid;
+    width: 540px;
+    height: 540px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    flex-wrap: wrap;
 }
 
-
-#chips{
-    font-size: x-small;
+.bingo-row{
+    width: 100%;
+    display:flex;
+    border: 2px pink solid;
 }
 
-#top-gw{
-    grid-area: 1 / 2 /  2 / 3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.tbh{
-    padding:25px;
-}
-
-#league-race{
-    grid-area: 2 / 2 / 3 / 3;
-}
-
-.league-graph{
-    width: 40vw;
-    margin: 5px;
-}
-
-#motm{
-    grid-area: 1 / 3 / 3 / 4;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.bingo-cell{
+    background-color: green;
+    border: 1px blue solid;
+    width: 33.3%;   
+    padding: 0; 
 }
 
 .footer{

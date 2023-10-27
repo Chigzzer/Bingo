@@ -3,7 +3,20 @@
 {% block body %}
 <div>
     {% for index in range(bingo_data | length) %} 
-        {{bingo_data[index]}}  
+        
     {% endfor %}
+
+    <div id="bingo-card">
+        {% for row in range(size) %}
+            <div class="bingo-row">
+                {% for column in range(size) %}
+                    <div class="bingo-cell">
+                        {{bingo_data[(row*size + column)]}}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+
+    </div>
 </div>
 {% endblock %}

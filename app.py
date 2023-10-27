@@ -7,6 +7,8 @@ app = Flask(__name__)
 app.config['Debug'] = True
 
 numbers_chosen = []
+bingo_bank = open("bingo-texts.txt").read().splitlines()
+
 def get_number(length):
     number = random.randint(0, length-1)
     while number in numbers_chosen:
@@ -15,7 +17,6 @@ def get_number(length):
     return number
 
 def generate_card(size):
-    bingo_bank = open("bingo-texts.txt").read().splitlines()
     bingo_card_data = []
     numbers_chosen.clear()
     for i in range(size*size):
@@ -28,6 +29,24 @@ def generate_card(size):
 @app.route("/")
 def index():
     size = 3;
+    bingo_data = generate_card(size)
+    print('below is data')
+    print(bingo_data)
+    print(numbers_chosen)
+    return render_template("index.html", bingo_data = bingo_data, size = size)
+
+@app.route("/", methods = ['POST'])
+def index_size():
+    if not request.form.get('bingo-size'):
+        return redirect('/')
+    if int(request.form.get('bingo-size')) < 1:
+        return redirect("/") 
+    
+    if (int(request.form.get('bingo-size')) * int(request.form.get('bingo-size')))> len(bingo_bank):
+        return redirect('/')
+
+
+    size = int(request.form.get('bingo-size'))
     bingo_data = generate_card(size)
     print('below is data')
     print(bingo_data)

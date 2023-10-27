@@ -6,11 +6,7 @@ import random
 app = Flask(__name__)
 app.config['Debug'] = True
 
-
-
-
 numbers_chosen = []
-
 def get_number(length):
     number = random.randint(0, length-1)
     while number in numbers_chosen:
@@ -18,23 +14,21 @@ def get_number(length):
     numbers_chosen.append(number)
     return number
 
-def generate_card():
+def generate_card(size):
     bingo_bank = open("bingo-texts.txt").read().splitlines()
     bingo_card_data = []
     numbers_chosen.clear()
-    for i in range(9):
+    for i in range(size*size):
         index = get_number(len(bingo_bank))
         bingo_card_data.append(bingo_bank[index])
     print(bingo_card_data)
     return bingo_card_data
 
 
-
-
 @app.route("/")
 def index():
-    bingo_data = generate_card()
-    size = 3
+    size = 3;
+    bingo_data = generate_card(size)
     print('below is data')
     print(bingo_data)
     print(numbers_chosen)
